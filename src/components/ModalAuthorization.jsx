@@ -2,11 +2,13 @@ import React from "react";
 import { Modal, Input, Typography, Button } from "antd";
 import "antd/dist/antd.css";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import {connect } from "react-redux";
+import {setCurrentUser} from '../actions';
 
 class ModalAuthorization extends React.Component {
   constructor(props) {
     super(props);
-    this.isOpenModal = props.isOpenModal;
+    this.setCurrentUser = this.props.setCurrentUser;
     this.state = {
       name: "",
       password: "",
@@ -21,9 +23,9 @@ class ModalAuthorization extends React.Component {
   };
 
   submitDataForm = () => {
-    console.log(
-      `name: ${this.state.name}, description: ${this.state.password}`
-    );
+    const users = JSON.parse(localStorage.getItem('users'));
+    const user = users.find((item) =>  item.name === this.state.name && item.password === this.state.password);
+    if (user) this.setCurrentUser(user);
     this.closeModal();
   };
 
@@ -66,4 +68,6 @@ class ModalAuthorization extends React.Component {
   }
 }
 
-export default ModalAuthorization;
+export default connect((state) => ({
+  state: state
+}) , { setCurrentUser })(ModalAuthorization)
