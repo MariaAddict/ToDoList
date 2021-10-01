@@ -13,6 +13,7 @@ class ModalAuthorization extends React.Component {
     this.state = {
       name: "",
       password: "",
+      errorAuth: false
     };
     this.closeModal = () => {
       props.closeModal();
@@ -31,9 +32,12 @@ class ModalAuthorization extends React.Component {
         item.name === this.state.name && item.password === this.state.password
     );
     if (user) {
+      this.setState({errorAuth: false});
       this.setCurrentUser(user);
       this.closeModal();
       this.props.history.push("/tasks/");
+    } else {
+      this.setState({errorAuth: true});
     }
   };
 
@@ -69,8 +73,9 @@ class ModalAuthorization extends React.Component {
           onChange={this.getInputUserData}
           iconRender={(visible) =>
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-          }
+          }  
         />
+        {this.state.errorAuth && <Typography.Text type="danger" style={{textAlign: "center"}}>Invalid username or password</Typography.Text>}
       </Modal>
     );
   }
