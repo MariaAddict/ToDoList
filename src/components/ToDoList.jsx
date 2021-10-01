@@ -5,7 +5,6 @@ import { setTaskChecked } from "../actions";
 
 class ToDoList extends React.Component {
   render() {
-    console.log("task", this.props.tasks);
     return (
       <List
         itemLayout="horizontal"
