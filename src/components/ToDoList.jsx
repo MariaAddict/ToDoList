@@ -2,35 +2,10 @@ import React from "react";
 import { List, Typography, Card, Checkbox } from "antd";
 import { connect } from "react-redux";
 
-const tasks = [
-  {
-    title: "pay product",
-    description: "list: apple, ...",
-    date: new Date().toDateString(),
-  },
-  {
-    title: "pay product",
-    description:
-      "list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha",
-    date: new Date().toDateString(),
-  },
-  {
-    title: "pay product",
-    description: "list: apple, ...",
-    date: new Date().toDateString(),
-  },
-  {
-    title: "pay product",
-    description:
-      "list: apple, ... ghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi ",
-    date: new Date().toDateString(),
-  },
-];
-
 class ToDoList extends React.Component {
   constructor(props) {
     super(props);
-    this.tasks = tasks;
+    this.tasks = this.props.tasks;
   }
 
   render() {
@@ -54,7 +29,7 @@ class ToDoList extends React.Component {
 
 export default connect(
   (state) => ({
-    items: state.tasks,
+    tasks: state.tasks,
   }),
   null
 )(ToDoList);

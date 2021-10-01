@@ -24,6 +24,7 @@ class ToDoListScreen extends React.Component {
         style={{
           alignItems: "center",
           padding: "50px 10%",
+          minHeight: "100%",
         }}
       >
         <Typography.Paragraph>{`Hello, ${this.props.user.name}`}</Typography.Paragraph>
