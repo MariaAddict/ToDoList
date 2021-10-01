@@ -3,6 +3,7 @@ import MainScreen from "./MainScreen";
 import ToDoListScreen from "./ToDoListScreen";
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import CreateTaskScreen from "./CreateTaskScreen";
 
 import { users } from "../constants";
 
@@ -21,7 +22,11 @@ class App extends React.Component {
         <ProtectedRoute
           path="/tasks/"
           component={ToDoListScreen}
-        ></ProtectedRoute>
+        />
+        <ProtectedRoute
+          path="/create-task/"
+          component={CreateTaskScreen}
+        />
         <ToDoListScreen />
       </Switch>
     );

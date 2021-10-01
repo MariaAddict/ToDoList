@@ -5,12 +5,12 @@ import Header from "./Header";
 import ToDoList from "./ToDoList";
 import { connect } from "react-redux";
 import { removeCurrentUser } from "../actions";
-import { withRouter } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 
 class ToDoListScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.data =  this.props;
+    this.data = this.props;
   }
 
   signOut() {
@@ -31,7 +31,7 @@ class ToDoListScreen extends React.Component {
         <Button key="link" type="primary" onClick={() => this.signOut()} block>
           Sign out
         </Button>
-        <Layout style={{ maxWidth: "820px" }}>
+        <Layout style={{ maxWidth: "820px", width: "100%" }}>
           <Header />
           <Button
             type="primary"
@@ -40,7 +40,7 @@ class ToDoListScreen extends React.Component {
               marginBottom: "20px",
             }}
           >
-            Create new task
+            <NavLink to="/create-task">Create new task</NavLink>
           </Button>
           <ToDoList />
         </Layout>
