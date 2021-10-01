@@ -2,14 +2,14 @@ import React from "react";
 import { Layout, DatePicker, Typography, Input, Button, Form } from "antd";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
-import { removeCurrentUser } from "../actions";
+import { createTask } from "../actions";
 import { withRouter, NavLink } from "react-router-dom";
 
 class CreateTaskScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      title: "",
       description: "",
       date: "",
     };
@@ -24,10 +24,8 @@ class CreateTaskScreen extends React.Component {
   };
 
   sendDataForm = () => {
-    console.log(
-      `name: ${this.state.name}, description: ${this.state.description}, date: ${this.state.date}`
-    );
-    this.closeModal();
+    this.props.createTask(this.state);
+    this.props.history.push("./tasks/");
   };
 
   render() {
@@ -53,7 +51,7 @@ class CreateTaskScreen extends React.Component {
               <Input
                 placeholder="Task name"
                 onChange={this.getInputTextData}
-                name="name"
+                name="title"
               />
             </Form.Item>
             <Form.Item label="Task description">
@@ -86,5 +84,5 @@ export default connect(
   (state) => ({
     user: state,
   }),
-  { removeCurrentUser }
+  { createTask }
 )(withRouter(CreateTaskScreen));
