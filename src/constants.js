@@ -6,15 +6,15 @@ export const users = [
         tasks: [
             {
                 id: "01",
-                title: "pay product",
-                description: "list: apple, ...",
+                title: "Go home",
+                description: "Lorem ipsum morbi proin molestie curabitur nec nam in ultricies porttitor ligula ut ipsum. Eget, nulla molestie vivamus mauris in elementum, quisque duis, eget commodo mauris cursus donec rutrum mattis metus porttitor sapien commodo donec.",
                 date: new Date().toDateString(),
                 checked: false,
             },
             {
                 id: "03",
                 title: "pay product",
-                description: "list: pen, book, ...",
+                description: "pen, book",
                 date: new Date().toDateString(),
                 checked: false,
             },
@@ -29,7 +29,7 @@ export const users = [
                 id: "0666",
                 title: "pay product",
                 description:
-                    "list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha",
+                    "Lorem ipsum morbi proin molestie curabitur nec nam in ultricies porttitor ligula ut ipsum. Eget, nulla molestie vivamus mauris in el",
                 date: new Date().toDateString(),
                 checked: false,
             },
@@ -44,7 +44,7 @@ export const users = [
                 id: "0890",
                 title: "pay product",
                 description:
-                    "list: apple, ... ghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi ",
+                    "list: apple, ... Lorem ipsum morbi proin molestie curabitur nec nam in ultricies porttitor ligula ut ipsum. Eget, nulla molestie vivamus mauris in elementum, quisque duis, eget commodo mauris cursus donec rutrum mattis metus porttitor sapien commodo donec. ",
                 date: new Date().toDateString(),
                 checked: false,
             },
