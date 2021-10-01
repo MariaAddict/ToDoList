@@ -4,7 +4,8 @@ import "antd/dist/antd.css";
 import { connect } from "react-redux";
 import { createTask } from "../actions";
 import { withRouter, NavLink } from "react-router-dom";
-import { users } from '../constants';
+import { users } from "../constants";
+import { v4 as uuidv4 } from "uuid";
 
 class CreateTaskScreen extends React.Component {
   constructor(props) {
@@ -26,17 +27,17 @@ class CreateTaskScreen extends React.Component {
 
   updateUsers() {
     users.map((user) => {
-        if (this.props.user.id === user.id)  {
-            user.tasks = [...user.tasks, this.state]
-        }
-        return user;
+      if (this.props.user.id === user.id) {
+        user.tasks = [...user.tasks, this.state];
+      }
+      return user;
     });
     localStorage.setItem("users", JSON.stringify(users));
   }
 
   sendDataForm = () => {
-    this.props.createTask(this.state);
-    localStorage.setItem("current user", JSON.stringify({tasks: [...this.props.user.tasks, this.state ], ...this.props.user}));
+    const idTask = uuidv4();
+    this.props.createTask({id: idTask, checked: false, ...this.state  });
     this.updateUsers();
     this.props.history.push("./tasks");
   };

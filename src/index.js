@@ -9,6 +9,9 @@ import { reducer } from './reducer';
 import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(reducer);
+store.subscribe(()=>{
+  localStorage.setItem('current user', JSON.stringify(store.getState()))
+})
 
 ReactDOM.render(
   <Provider store={store}>

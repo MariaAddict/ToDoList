@@ -5,36 +5,48 @@ export const users = [
         password: "12345",
         tasks: [
             {
+                id: "01",
                 title: "pay product",
                 description: "list: apple, ...",
                 date: new Date().toDateString(),
+                checked: false,
             },
             {
+                id: "03",
                 title: "pay product",
                 description: "list: pen, book, ...",
                 date: new Date().toDateString(),
+                checked: false,
             },
             {
+                id: "04",
                 title: "pay product",
                 description: "list: apple, ...",
                 date: new Date().toDateString(),
+                checked: false,
             },
             {
+                id: "0666",
                 title: "pay product",
                 description:
                     "list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha list: apple, ...sghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi jsgejr fdklgjls. gjksljgkljfglkaj gjsklfj aloha",
                 date: new Date().toDateString(),
+                checked: false,
             },
             {
+                id: "015",
                 title: "pay product",
                 description: "list: apple, ...",
                 date: new Date().toDateString(),
+                checked: false,
             },
             {
+                id: "0890",
                 title: "pay product",
                 description:
                     "list: apple, ... ghjdfkghaksjhfgjk, fshkjfdh, jgiojgrier,jgsoidjgi ",
                 date: new Date().toDateString(),
+                checked: false,
             },
         ]
     },
@@ -44,9 +56,11 @@ export const users = [
         password: "54321",
         tasks: [
             {
+                id: "013",
                 title: "To water flowers",
                 description: "water the flowers in the morning",
                 date: new Date().toDateString(),
+                checked: false,
             },
         ]
     },
