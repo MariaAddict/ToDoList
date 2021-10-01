@@ -33,10 +33,6 @@ class ToDoList extends React.Component {
     this.tasks = tasks;
   }
 
-  componentDidMount() {
-    console.log(this.tasks);
-  }
-
   render() {
     return (
       <List

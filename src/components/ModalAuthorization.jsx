@@ -2,8 +2,9 @@ import React from "react";
 import { Modal, Input, Typography, Button } from "antd";
 import "antd/dist/antd.css";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import {connect } from "react-redux";
-import {setCurrentUser} from '../actions';
+import { connect } from "react-redux";
+import { setCurrentUser } from "../actions";
+import { withRouter } from "react-router-dom";
 
 class ModalAuthorization extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class ModalAuthorization extends React.Component {
     this.closeModal = () => {
       props.closeModal();
     };
+    this.history = props.history;
   }
 
   getInputUserData = (evt) => {
@@ -23,10 +25,16 @@ class ModalAuthorization extends React.Component {
   };
 
   submitDataForm = () => {
-    const users = JSON.parse(localStorage.getItem('users'));
-    const user = users.find((item) =>  item.name === this.state.name && item.password === this.state.password);
-    if (user) this.setCurrentUser(user);
-    this.closeModal();
+    const users = JSON.parse(localStorage.getItem("users"));
+    const user = users.find(
+      (item) =>
+        item.name === this.state.name && item.password === this.state.password
+    );
+    if (user) {
+      this.setCurrentUser(user);
+      this.closeModal();
+      this.props.history.push("/tasks/");
+    }
   };
 
   render() {
@@ -68,6 +76,9 @@ class ModalAuthorization extends React.Component {
   }
 }
 
-export default connect((state) => ({
-  state: state
-}) , { setCurrentUser })(ModalAuthorization)
+export default connect(
+  (state) => ({
+    state: state,
+  }),
+  { setCurrentUser }
+)(withRouter(ModalAuthorization));

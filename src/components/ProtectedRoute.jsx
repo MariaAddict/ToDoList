@@ -1,18 +1,25 @@
-import React from 'react';
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 class ProtectedRoute extends React.Component {
-    constructor(props) {
-        super(props);
-        this.data = props;
-      }
-    render() {return (
-    <Route>
-      {
-        () =>  localStorage.getItem("users") ? <this.data.component  {...this.data} /> : <Redirect to="./" />
-      }
-    </Route>
-)}
+  constructor(props) {
+    super(props);
+    this.user = props.user;
+    this.component = props.component;
+  }
+  render() {
+    return (
+      <Route>
+        {() => (!!this.user.name ? <this.component /> : <Redirect to="./" />)}
+      </Route>
+    );
+  }
 }
 
-export default ProtectedRoute;
+export default connect(
+  (state) => ({
+    user: state,
+  }),
+  null
+)(ProtectedRoute);
