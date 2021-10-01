@@ -6,7 +6,7 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
   return (
     <Route>
       {() =>
-        !!props.user.name ? <Component {...props} /> : <Redirect to="./" />
+        JSON.parse(localStorage.getItem("current user")) ? <Component {...props} /> : <Redirect to="./" />
       }
     </Route>
   );

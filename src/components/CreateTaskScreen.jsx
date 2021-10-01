@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import { connect } from "react-redux";
 import { createTask } from "../actions";
 import { withRouter, NavLink } from "react-router-dom";
+import { users } from '../constants';
 
 class CreateTaskScreen extends React.Component {
   constructor(props) {
@@ -23,9 +24,21 @@ class CreateTaskScreen extends React.Component {
     this.setState({ [evt.target.name]: evt.target.value });
   };
 
+  updateUsers() {
+    users.map((user) => {
+        if (this.props.user.id === user.id)  {
+            user.tasks = [...user.tasks, this.state]
+        }
+        return user;
+    });
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
   sendDataForm = () => {
     this.props.createTask(this.state);
-    this.props.history.push("./tasks/");
+    localStorage.setItem("current user", JSON.stringify({tasks: [...this.props.user.tasks, this.state ], ...this.props.user}));
+    this.updateUsers();
+    this.props.history.push("./tasks");
   };
 
   render() {

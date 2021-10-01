@@ -16,6 +16,7 @@ class ToDoListScreen extends React.Component {
   signOut() {
     this.props.removeCurrentUser();
     this.props.history.push("/");
+    localStorage.removeItem("current user");
   }
 
   render() {

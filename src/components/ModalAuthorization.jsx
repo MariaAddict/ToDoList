@@ -32,6 +32,7 @@ class ModalAuthorization extends React.Component {
     );
     if (user) {
       this.setCurrentUser(user);
+      localStorage.setItem("current user", JSON.stringify(user));
       this.closeModal();
       this.props.history.push("/tasks/");
     }
