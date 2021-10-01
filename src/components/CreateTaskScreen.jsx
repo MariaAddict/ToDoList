@@ -37,7 +37,13 @@ class CreateTaskScreen extends React.Component {
 
   sendDataForm = () => {
     const idTask = uuidv4();
-    this.props.createTask({id: idTask, checked: false, ...this.state  });
+    const date = new Date(this.state.date).toDateString();
+    this.props.createTask({
+      ...this.state,
+      id: idTask,
+      checked: false,
+      date: date,
+    });
     this.updateUsers();
     this.props.history.push("./tasks");
   };
